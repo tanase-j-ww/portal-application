@@ -18,6 +18,8 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.github.tanase_j_ww.portal_application",
+      "versionCode": 1000000,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "331d09b9-588f-4767-8bea-569e5a5fd070"
+      }
     }
   }
 }
