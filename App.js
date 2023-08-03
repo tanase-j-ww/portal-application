@@ -37,11 +37,6 @@ export default function App() {
         <OpenURLButton url={"geo:37.7749,-122.4194"}>GoogleMap(geo:サンフランシスコ)</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <SendIntentButton action="com.google.android.apps.maps.ACTION_VIEW">
-          googelmap
-        </SendIntentButton>
-      </View>
-      <View style={styles.button}>
         <OpenURLButton url={"https://www.youtube.com/"}>Youtube(ブラウザから表示)</OpenURLButton>
       </View>
     {/* youtubeのurlスキーマが判明次第追加
