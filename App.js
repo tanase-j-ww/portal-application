@@ -13,13 +13,13 @@ export default function App() {
         <OpenURLButton url={"geo:"}>GoogleMap(android)</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"comgooglemaps://"}>GoogleMap(iPhone)</OpenURLButton>
+        <OpenURLButton url={"comgooglemaps:"}>GoogleMap(iPhone)</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"https://www.google.com/maps/"}>GoogleMap(iPhone)</OpenURLButton>
+        <OpenURLButton url={"https://www.google.com/maps/"}>GoogleMap(webURL)</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"https://www.google.com/maps/search/?api=1&query=New+York"}>GoogleMap(NewYork)</OpenURLButton>
+        <OpenURLButton url={"https://www.google.com/maps/search/?api=1&query=New+York"}>GoogleMap(webURL:NewYork)</OpenURLButton>
       </View>
       <View style={styles.button}>
         <View style={styles.input}>
@@ -34,7 +34,7 @@ export default function App() {
         <OpenURLButton url={`geo:0,0?q=${encodeURI(serchPlace2)}`}>{serchPlace2}</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"geo:37.7749,-122.4194"}>GoogleMap(サンフランシスコを表示)</OpenURLButton>
+        <OpenURLButton url={"geo:37.7749,-122.4194"}>GoogleMap(geo:サンフランシスコ)</OpenURLButton>
       </View>
       <View style={styles.button}>
         <SendIntentButton action="com.google.android.apps.maps.ACTION_VIEW">
@@ -60,7 +60,7 @@ const OpenURLButton = ({url, children}) => {
   const handlePress = useCallback(async () => {
     // URLを処理できるか確認
     const supported = await Linking.canOpenURL(url);
-
+    console.log(supported);
     if (supported) {
       await Linking.openURL(url);
     } else {
@@ -68,18 +68,6 @@ const OpenURLButton = ({url, children}) => {
       Alert.alert(`Don't know how to open this URL: ${url}`);
     }
   }, [url]);
-
-  return <Button title={children} onPress={handlePress} />;
-};
-
-const SendIntentButton = ({action, extras, children}) => {
-  const handlePress = useCallback(async () => {
-    try {
-      await Linking.sendIntent(action, extras);
-    } catch (e) {
-      Alert.alert(e.message);
-    }
-  }, [action, extras]);
 
   return <Button title={children} onPress={handlePress} />;
 };
