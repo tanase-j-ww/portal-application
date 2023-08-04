@@ -13,25 +13,31 @@ export default function App() {
         <OpenURLButton url={"geo:"}>GoogleMap(android)</OpenURLButton>
       </View>
       <View style={styles.button}>
+        <URLButton url={"geo:"}>GoogleMap(android)</URLButton>
+      </View>
+      <View style={styles.button}>
         <OpenURLButton url={"comgooglemaps:"}>GoogleMap(iPhone)</OpenURLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"https://www.google.com/maps/"}>GoogleMap(webURL)</OpenURLButton>
+        <URLButton url={"comgooglemaps:"}>GoogleMap(iPhone)</URLButton>
       </View>
       <View style={styles.button}>
-        <OpenURLButton url={"https://www.google.com/maps/search/?api=1&query=New+York"}>GoogleMap(webURL:NewYork)</OpenURLButton>
+        <URLButton url={"https://www.google.com/maps/"}>GoogleMap(webURL)</URLButton>
+      </View>
+      <View style={styles.button}>
+        <URLButton url={"https://www.google.com/maps/search/?api=1&query=New+York"}>GoogleMap(webURL:NewYork)</URLButton>
       </View>
       <View style={styles.button}>
         <View style={styles.input}>
           <TextInput onChangeText={onChangeText1}/>
         </View>
-        <OpenURLButton url={`https://www.google.com/maps/search/?api=1&query=${encodeURI(serchPlace1)}`}>{serchPlace1}</OpenURLButton>
+        <URLButton url={`https://www.google.com/maps/search/?api=1&query=${encodeURI(serchPlace1)}`}>{serchPlace1}</URLButton>
       </View>
       <View style={styles.button}>
         <View style={styles.input}>
           <TextInput onChangeText={onChangeText2}/>
         </View>
-        <OpenURLButton url={`geo:0,0?q=${encodeURI(serchPlace2)}`}>{serchPlace2}</OpenURLButton>
+        <URLButton url={`geo:0,0?q=${encodeURI(serchPlace2)}`}>{serchPlace2}</URLButton>
       </View>
       <View style={styles.button}>
         <OpenURLButton url={"geo:37.7749,-122.4194"}>GoogleMap(geo:サンフランシスコ)</OpenURLButton>
@@ -63,7 +69,13 @@ const OpenURLButton = ({url, children}) => {
       Alert.alert(`Don't know how to open this URL: ${url}`);
     }
   }, [url]);
+  return <Button title={children} onPress={handlePress} />;
+};
 
+const URLButton = ({url, children}) => {
+  const handlePress = useCallback(async () => {
+    await Linking.openURL(url);
+  }, [url]);
   return <Button title={children} onPress={handlePress} />;
 };
 
