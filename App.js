@@ -1,28 +1,30 @@
-
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View, Linking, Button, Alert, TextInput } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainScreen from './src/MainScreen'
 import GoogleMapList from './src/GoogleMapList';
 import GoogleChrome from './src/GoogleChrome';
 import Expo from './src/expo';
 import Portal from './src/portal';
 import LINE from './src/LINE';
+import SubScreen from './src/SubScreen';
+import GoogleMapFlatlist from './src/GoogleMapFlatList';
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Main'>
-        <Stack.Screen name="Main" component={MainScreen} />
-        <Stack.Screen name="GoogleMapList" component={GoogleMapList} />
-        <Stack.Screen name="GoogleChrome" component={GoogleChrome} />
-        <Stack.Screen name="Expo" component={Expo} />
-        <Stack.Screen name="portal" component={Portal} />
-        <Stack.Screen name='LINE' component={LINE} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName='Main'>
+        <Drawer.Screen name="Main" component={MainScreen} options={{title:"ホーム"}}/>
+        <Drawer.Screen name="Sub" component={SubScreen} options={{title:"サブページ"}}/>
+        <Drawer.Screen name="GoogleMapList" component={GoogleMapList} options={{title:"Mapで色々"}}/>
+        <Drawer.Screen name="GoogleMapFlatlist" component={GoogleMapFlatlist} options={{title:"Mapで色々2"}}/>
+        <Drawer.Screen name="GoogleChrome" component={GoogleChrome} />
+        <Drawer.Screen name="Expo" component={Expo} />
+        <Drawer.Screen name="portal" component={Portal} />
+        <Drawer.Screen name='LINE' component={LINE} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

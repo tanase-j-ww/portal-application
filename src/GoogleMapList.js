@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { useCallback, useState } from 'react';
 import { StyleSheet, Text, View, Linking, Button, Alert, TextInput } from 'react-native';
 
@@ -22,7 +22,7 @@ export default function GoogleMapList({navigation}) {
         <URLButton url={"comgooglemaps:"}>GoogleMap(iPhone)</URLButton>
       </View>
       <View style={styles.button}>
-        <URLButton url={"https://www.google.com/maps/"}>GoogleMap(webURL)</URLButton>
+        <OpenURLButton url={"https://www.google.com/maps/"}>GoogleMap(webURL)</OpenURLButton>
       </View>
       <View style={styles.button}>
         <URLButton url={"https://www.google.com/maps/search/?api=1&query=New+York"}>GoogleMap(webURL:NewYork)</URLButton>

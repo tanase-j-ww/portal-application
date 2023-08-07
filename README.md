@@ -19,6 +19,8 @@ PortalApplicationを使うためには、以下の手順に従ってください
 3. プロジェクトディレクトリに移動： `cd awesomeapp`
 4. 依存関係をインストール： `npm install`
 5. 開発サーバーを起動： `npm start`
+    ※cacheが残っているとerrorを返すのでその場合は`npm start -- --reset-cache`
+    `https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation`
 6. QRコードを読み取る:  iPhoneは純正のカメラ、androidはexpoGoのScanQRcodeから。
 
 ## 使用方法

@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { useCallback, useState } from 'react';
 import { StyleSheet, Text, View, Linking, Button, Alert, TextInput } from 'react-native';
 
@@ -16,13 +16,11 @@ export default function GoogleChrome({navigation}) {
 
 const OpenURLButton = ({url, children}) => {
   const handlePress = useCallback(async () => {
-    // URLを処理できるか確認
     const supported = await Linking.canOpenURL(url);
     console.log(supported);
     if (supported) {
       await Linking.openURL(url);
     } else {
-      // 処理できない場合はアラートを表示
       Alert.alert(`Don't know how to open this URL: ${url}`);
     }
   }, [url]);

@@ -1,12 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { useCallback, useState } from 'react';
 import { StyleSheet, Text, View, Linking, Button, Alert, TextInput, NativeEventEmitter } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function MainScreen({navigation}) {
   return (
     <View style={styles.container}>
+        <View style={styles.button}>
+            <Button title='SubPage' onPress={() => navigation.navigate('Sub')}></Button>
+        </View>
         <View style={styles.button}>
             <Button title='GoogleMapPage' onPress={() => navigation.navigate('GoogleMapList')}></Button>
         </View>
