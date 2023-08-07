@@ -4,6 +4,7 @@
     "slug": "portal_application",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "portalappsample",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -18,21 +19,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.github.tanase_j_ww.portal_application",
+      "package": "com.github.tanase_j_ww.portal_application_sample",
       "versionCode": 1000000,
-      "config": {
-        "intentFilters": [
-          {
-            "action": "VIEW",
-            "data": [
-              {
-                "scheme": "geo"
-              }
-            ],
-            "category": ["DEFAULT"]
-          }
-        ]
-      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
